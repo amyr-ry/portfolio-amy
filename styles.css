@@ -1,0 +1,141 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+      body {
+        margin: 0;
+        font-family: "Dancing Script", Georgia, serif;
+        color: #280905;
+        background-color: rgba(230, 80, 27, 0.2);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 160px;
+        line-height: 1.4;
+      }
+
+      h2 {
+        margin: 150px 100px 20px;
+        font-size: 48px;
+        color: #740A03;
+      }
+
+      p {
+        margin: 10px 10px 100px 100px;
+        max-width: 800px;
+        padding: 20px;
+        background-color: rgba(195, 17, 12, 0.15);
+        font-size: 20px;
+        line-height: 1.6;
+      }
+
+      /* Top */
+      .top {
+        position: relative;
+      }
+
+      .title {
+        margin: 80px 10px 10px 80px;
+        width: 800px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .left {
+        align-self: flex-start;
+        z-index: 4
+      }
+
+      .right {
+        align-self: flex-end;
+        z-index: 4
+      }
+
+      .red-circle {
+        position: absolute;
+        border-radius: 50%;
+        top: -350px;
+        right: 50px;
+        width: 800px;
+        height: 800px;
+        background: rgba(195, 17, 12, 0.15);
+        z-index: 2;
+      }
+
+      .brown-circle {
+        position: absolute;
+        border-radius: 50%;
+        top: -30px;
+        right: -120px;
+        width: 550px;
+        height: 550px;
+        background: rgba(116, 10, 3, 0.15);
+        z-index: 3;
+      }
+
+      .helloworld {
+        position: absolute;
+        left: 850px;
+        top: 0;
+        width: 500px;
+        height: 60px;
+        object-fit: cover;
+        z-index: 1;
+      }
+
+      /* Artist Statement */
+      .artist {
+        position: relative;
+      }
+
+      .myimage {
+        position: absolute;
+        left: 1025px;
+        top: 125px;
+        width: 350px;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      /* My Journey */
+      .journey {
+        position: relative;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+        max-width: 1200px;
+        margin: 30px auto;
+      }
+
+      .project {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .project img {
+        width: 100%;
+        height: 365px;
+        object-fit: cover;
+      }
+
+      .project:hover img {
+        opacity: 0.85;
+      }
+
+      .label {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 5px 15px;
+        background-color: rgba(116, 10, 3, 0.15);
+        border-radius: 50px;
+        font-size: 24px;
+        color: #280905;
+      }
+
+      .project:hover .label {
+        background-color: rgba(195, 17, 12, 0.15);
+      }
