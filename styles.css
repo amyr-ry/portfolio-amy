@@ -1,141 +1,400 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
-      body {
-        margin: 0;
-        font-family: "Dancing Script", Georgia, serif;
-        color: #280905;
-        background-color: rgba(230, 80, 27, 0.2);
-      }
+:root{
+  --ink:#280905;
+  --bg:#f3e9d2;
+  --blue:#1e6fa8;
+  --yellow:#f4c42f;
 
-      h1 {
-        margin: 0;
-        font-size: 160px;
-        line-height: 1.4;
-      }
+  --side:clamp(16px,6vw,100px);
+  --top:clamp(40px,8vw,80px);
 
-      h2 {
-        margin: 150px 100px 20px;
-        font-size: 48px;
-        color: #740A03;
-      }
+  --journey-max:1000px;
 
-      p {
-        margin: 10px 10px 100px 100px;
-        max-width: 800px;
-        padding: 20px;
-        background-color: rgba(195, 17, 12, 0.15);
-        font-size: 20px;
-        line-height: 1.6;
-      }
+  --card-w:clamp(260px,34vw,380px);
+  --card-h:clamp(170px,24vw,240px);
 
-      /* Top */
-      .top {
-        position: relative;
-      }
+  --gap:clamp(90px,10vh,140px);
+  --y1:clamp(140px,18vh,190px);
+  --step:calc(var(--card-h) + var(--gap));
 
-      .title {
-        margin: 80px 10px 10px 80px;
-        width: 800px;
-        display: flex;
-        flex-direction: column;
-      }
+  --y2:calc(var(--y1) + var(--step));
+  --y3:calc(var(--y1) + var(--step) + var(--step));
+  --y4:calc(var(--y1) + var(--step) + var(--step) + var(--step));
+  --y5:calc(var(--y1) + var(--step) + var(--step) + var(--step) + var(--step));
 
-      .left {
-        align-self: flex-start;
-        z-index: 4
-      }
+  --xL:32%;
+  --xR:68%;
 
-      .right {
-        align-self: flex-end;
-        z-index: 4
-      }
+  --path-w:clamp(170px,22vw,260px);
+}
 
-      .red-circle {
-        position: absolute;
-        border-radius: 50%;
-        top: -350px;
-        right: 50px;
-        width: 800px;
-        height: 800px;
-        background: rgba(195, 17, 12, 0.15);
-        z-index: 2;
-      }
+html{
+  overflow-x:hidden;
+}
 
-      .brown-circle {
-        position: absolute;
-        border-radius: 50%;
-        top: -30px;
-        right: -120px;
-        width: 550px;
-        height: 550px;
-        background: rgba(116, 10, 3, 0.15);
-        z-index: 3;
-      }
+body{
+  margin:0;
+  font-family:"Dancing Script",Georgia,serif;
+  color:var(--ink);
+  background-color:var(--bg);
+  position:relative;
+  min-height:100vh;
+  overflow-x:hidden;
+}
 
-      .helloworld {
-        position: absolute;
-        left: 850px;
-        top: 0;
-        width: 500px;
-        height: 60px;
-        object-fit: cover;
-        z-index: 1;
-      }
+h1{
+  margin:0;
+  font-size:200px;
+  line-height:1.2;
+}
 
-      /* Artist Statement */
-      .artist {
-        position: relative;
-      }
+h2{
+  margin:clamp(30px,6vw,60px) var(--side) clamp(12px,3vw,20px) var(--side);
+  font-size:clamp(28px,5vw,60px);
+  color:var(--blue);
+}
 
-      .myimage {
-        position: absolute;
-        left: 1025px;
-        top: 125px;
-        width: 350px;
-        height: 500px;
-        object-fit: cover;
-        border-radius: 50%;
-      }
+p{
+  margin:10px var(--side) clamp(12px,3vw,18px) var(--side);
+  max-width:800px;
+  padding:clamp(12px,2vw,20px);
+  font-size:clamp(16px,2.2vw,20px);
+  line-height:1.6;
+  font-family:Georgia,serif;
+}
 
-      /* My Journey */
-      .journey {
-        position: relative;
-      }
+.top{
+  position:relative;
+}
 
-      .project-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 50px;
-        max-width: 1200px;
-        margin: 30px auto;
-      }
+.title{
+  margin:80px 10px 10px 80px;
+  width:1000px;
+  display:flex;
+  flex-direction:column;
+}
 
-      .project {
-        display: block;
-        text-align: center;
-        text-decoration: none;
-      }
+.left{
+  align-self:flex-start;
+}
 
-      .project img {
-        width: 100%;
-        height: 365px;
-        object-fit: cover;
-      }
+.right{
+  align-self:flex-end;
+}
 
-      .project:hover img {
-        opacity: 0.85;
-      }
+.blue-circle{
+  position:absolute;
+  border-radius:50%;
+  top:-50vh;
+  right:-10vw;
+  width:clamp(420px,60vw,800px);
+  height:clamp(420px,60vw,800px);
+  background:var(--blue);
+  filter:opacity(0.2);
+  z-index:-1;
+}
 
-      .label {
-        display: inline-block;
-        margin-top: 8px;
-        padding: 5px 15px;
-        background-color: rgba(116, 10, 3, 0.15);
-        border-radius: 50px;
-        font-size: 24px;
-        color: #280905;
-      }
+.yellow-circle{
+  position:absolute;
+  border-radius:50%;
+  top:6vh;
+  right:-15vw;
+  width:clamp(300px,45vw,550px);
+  height:clamp(300px,45vw,550px);
+  background:var(--yellow);
+  filter:opacity(0.2);
+  z-index:-1;
+}
 
-      .project:hover .label {
-        background-color: rgba(195, 17, 12, 0.15);
-      }
+.artist{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  column-gap:clamp(16px,4vw,40px);
+  align-items:start;
+}
+
+.artist h2{
+  grid-column:1/-1;
+}
+
+.artist p{
+  grid-column:1/2;
+}
+
+.myimage{
+  grid-column:2/3;
+  position:static;
+  width:clamp(200px,26vw,300px);
+  height:clamp(260px,34vw,400px);
+  object-fit:cover;
+  margin-right:var(--side);
+}
+
+.journey{
+  position:relative;
+  padding-bottom:clamp(24px,5vw,50px);
+}
+
+.journey h2{
+  margin:clamp(8px,1.6vw,14px) var(--side) clamp(12px,3vw,18px) var(--side);
+}
+
+.projects{
+  position:relative;
+  width:min(calc(100% - (var(--side) * 2)),var(--journey-max));
+  margin:0 auto;
+  min-height:calc(var(--y5) + (var(--card-h) / 2) + 140px);
+}
+
+.path{
+  position:absolute;
+  z-index:1;
+  pointer-events:none;
+  width:var(--path-w);
+  opacity:0.95;
+}
+
+.path-1{
+  left:calc(var(--xL) + 18%);
+  top:calc(var(--y1) + (var(--card-h) * 0.05));
+  transform:translate(-50%,-50%) rotate(95deg);
+}
+
+.path-2{
+  left:50%;
+  top:calc((var(--y1) + var(--y2)) / 2);
+  transform:translate(-50%,-50%) rotate(-12deg);
+}
+
+.path-3{
+  left:50%;
+  top:calc((var(--y2) + var(--y3)) / 2);
+  transform:translate(-50%,-50%) rotate(14deg);
+}
+
+.path-4{
+  left:50%;
+  top:calc((var(--y3) + var(--y4)) / 2);
+  transform:translate(-50%,-50%) rotate(-14deg);
+}
+
+.path-5{
+  left:50%;
+  top:calc((var(--y4) + var(--y5)) / 2);
+  transform:translate(-50%,-50%) rotate(10deg);
+}
+
+.project{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  text-decoration:none;
+  color:inherit;
+  z-index:2;
+}
+
+.project img{
+  width:var(--card-w);
+  height:var(--card-h);
+  display:block;
+  object-fit:cover;
+  background:#a9a9a9;
+  border-radius:4px;
+}
+
+.project:hover img{
+  opacity:0.85;
+}
+
+.label{
+  margin-top:8px;
+  padding:5px 15px;
+  background-color:rgba(116,10,3,0.15);
+  border-radius:50px;
+  font-size:24px;
+  color:var(--ink);
+}
+
+.project:hover .label{
+  background-color:rgba(195,17,12,0.15);
+}
+
+.journey .label{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  padding:0;
+  margin:0;
+  background-color:transparent;
+  border-radius:0;
+  font-size:clamp(14px,1.6vw,18px);
+  color:#d47a2a;
+  letter-spacing:0.15em;
+  writing-mode:vertical-rl;
+  text-orientation:upright;
+  line-height:1;
+  font-weight:800;
+}
+
+.project-paris{
+  left:var(--xL);
+  top:var(--y1);
+}
+
+.project-paris .label{
+  right:calc(100% + 14px);
+}
+
+.project-uva{
+  left:var(--xR);
+  top:var(--y2);
+}
+
+.project-uva .label{
+  left:calc(100% + 14px);
+}
+
+.project-sfrance{
+  left:var(--xL);
+  top:var(--y3);
+}
+
+.project-sfrance .label{
+  right:calc(100% + 14px);
+}
+
+.project-xjiang{
+  left:var(--xR);
+  top:var(--y4);
+}
+
+.project-xjiang .label{
+  left:calc(100% + 14px);
+}
+
+.project-rlake{
+  left:var(--xL);
+  top:var(--y5);
+}
+
+.project-rlake .label{
+  right:calc(100% + 14px);
+}
+
+.site-footer{
+  background:#4a4a4a;
+  color:#fff;
+  padding:18px 0;
+}
+
+.footer-inner{
+  width:min(calc(100% - (var(--side) * 2)),var(--journey-max));
+  margin:0 auto;
+  display:flex;
+  gap:18px;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.footer-note{
+  font-family:Georgia,serif;
+  font-size:12px;
+  letter-spacing:0.06em;
+  max-width:320px;
+  text-transform:uppercase;
+}
+
+.footer-contact{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  font-family:Georgia,serif;
+  font-size:12px;
+  letter-spacing:0.06em;
+}
+
+.contact-row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:flex-end;
+}
+
+.contact-icon{
+  display:inline-block;
+  width:18px;
+  text-align:center;
+}
+
+.footer-contact a{
+  color:#fff;
+  text-decoration:none;
+}
+
+.footer-contact a:hover{
+  text-decoration:underline;
+}
+
+@media (max-width:1100px){
+  h1{
+    font-size:clamp(90px,12vw,200px);
+  }
+
+  .title{
+    margin:var(--top) var(--side) 10px var(--side);
+    width:min(100%,1000px);
+  }
+}
+
+@media (max-width:700px){
+  .artist{
+    grid-template-columns:1fr;
+  }
+
+  .myimage{
+    grid-column:1/-1;
+    justify-self:center;
+    width:min(85vw,320px);
+    height:auto;
+    aspect-ratio:3/4;
+    margin-right:0;
+  }
+}
+
+@media (max-width:520px){
+  :root{
+    --journey-max:900px;
+    --card-w:min(86vw,360px);
+    --card-h:clamp(170px,40vw,230px);
+    --gap:clamp(110px,14vh,180px);
+    --xL:50%;
+    --xR:50%;
+    --path-w:clamp(180px,60vw,280px);
+  }
+
+  .projects{
+    width:calc(100% - 32px);
+    min-height:calc(var(--y5) + (var(--card-h) / 2) + 180px);
+  }
+
+  .journey .label{
+    font-size:14px;
+    letter-spacing:0.1em;
+  }
+
+  .project-paris .label,
+  .project-sfrance .label,
+  .project-rlake .label{
+    right:auto;
+    left:calc(100% + 12px);
+  }
+
+  .footer-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .contact-row{
+    justify-content:flex-start;
+  }
+}
