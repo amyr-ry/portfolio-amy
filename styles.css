@@ -8,9 +8,8 @@
   --side: clamp(16px, 6vw, 100px);
   --top: clamp(40px, 8vw, 80px);
   --max: 1000px;
-
-  --card-w: clamp(260px, 34vw, 380px);
-  --card-h: clamp(170px, 24vw, 240px);
+  --card-w: clamp(300px, 40vw, 400px);
+  --card-h: clamp(200px, 30vw, 300px);
   --gap: clamp(90px, 10vh, 140px);
   --y1: clamp(140px, 18vh, 190px);
   --step: calc(var(--card-h) + var(--gap));
@@ -58,7 +57,7 @@ p {
 }
 
 .blue-circle {
-  position: fixed;
+  position: absolute;
   border-radius: 50%;
   top: -50vh;
   right: -10vw;
@@ -71,12 +70,12 @@ p {
 }
 
 .yellow-circle {
-  position: fixed;
+  position: absolute;
   border-radius: 50%;
-  top: 6vh;
+  top: 10vh;
   right: -15vw;
-  width: clamp(300px, 45vw, 550px);
-  height: clamp(300px, 45vw, 550px);
+  width: clamp(250px, 40vw, 450px);
+  height: clamp(250px, 40vw, 450px);
   background: var(--yellow);
   opacity: 0.2;
   pointer-events: none;
@@ -249,7 +248,7 @@ p {
 
 .footer-note {
   font-family: Georgia, serif;
-  font-size: 12px;
+  font-size: 20px;
   letter-spacing: 0.06em;
   max-width: 320px;
   text-transform: uppercase;
@@ -260,7 +259,7 @@ p {
   flex-direction: column;
   gap: 8px;
   font-family: Georgia, serif;
-  font-size: 12px;
+  font-size: 20px;
   letter-spacing: 0.06em;
 }
 
@@ -273,7 +272,7 @@ p {
 
 .contact-icon {
   display: inline-block;
-  width: 18px;
+  width: 50px;
   text-align: center;
 }
 
