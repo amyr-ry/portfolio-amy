@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const tl = document.querySelector(".tile-tl");
   const tr = document.querySelector(".tile-tr");
@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const br = document.querySelector(".tile-br");
   const center = document.querySelector(".tile-center");
 
-  if (prefersReducedMotion) {
+  if (reduced) {
     tl?.classList.add("in");
     tr?.classList.add("in");
     bl?.classList.add("in");
@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (i >= steps.length) return;
     steps[i]();
     i += 1;
-    setTimeout(run, 420);
+    setTimeout(run, 700);
   };
 
-  run();
+  setTimeout(run, 250);
 });

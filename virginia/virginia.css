@@ -1,189 +1,162 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
 
-:root {
-  --ink: #280905;
-  --blue: #1e6fa8;
-  --side: clamp(16px, 6vw, 100px);
-  --max: 1000px;
+:root{
+  --ink:#280905;
+  --bg:#f3e9d2;
+  --blue:#1e6fa8;
+
+  --side:clamp(16px,6vw,100px);
+  --max:1000px;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+/* base */
+html,body{margin:0;padding:0;overflow-x:hidden;}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,serif;}
+
+/* hero */
+.hero{width:100%;border-bottom:1px solid #d6d6d6;}
+.hero-img{
+  width:100%;
+  height:clamp(260px,38vw,480px);
+  display:block;
+  object-fit:cover;
+  object-position:middle;
 }
 
-body {
-  color: var(--ink);
-  background: #fff;
-  font-family: Georgia, serif;
+/* page wrap */
+.wrap{
+  width:min(calc(100% - (var(--side) * 2)), var(--max));
+  margin:0 auto;
+  padding:clamp(34px,6vw,56px) 0 clamp(44px,7vw,70px);
 }
 
-.hero {
-  width: 100%;
-  border-bottom: 1px solid #d6d6d6;
+/* statement */
+.statement{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:clamp(22px,5vw,70px);
+  align-items:start;
 }
 
-.hero-img {
-  width: 100%;
-  height: clamp(260px, 38vw, 480px);
-  display: block;
-  object-fit: cover;
-  object-position: center;
+.script-title{
+  margin:0 0 16px 0;
+  font-family:"Dancing Script", Georgia, serif;
+  font-size:clamp(34px,4.6vw,58px);
+  color:var(--blue);
+  font-weight:500;
 }
 
-.wrap {
-  width: min(calc(100% - (var(--side) * 2)), var(--max));
-  margin: 0 auto;
-  padding: clamp(34px, 6vw, 56px) 0 clamp(44px, 7vw, 70px);
+.statement-text p{
+  margin:0;
+  max-width:800px;
+  font-size:clamp(16px,2.2vw,20px);
+  line-height:1.6;
 }
 
-.statement {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: clamp(22px, 5vw, 70px);
-  align-items: start;
+.artwork{
+  width:clamp(320px,40vw,460px);
+  height:clamp(200px,22vw,280px);
+  object-fit:cover;
+  display:block;
+  border:1px solid #e6e6e6;
+  background:#f2f2f2;
+  margin-top:clamp(80px,20vw,100px);
 }
 
-.script-title {
-  margin: 0 0 16px 0;
-  font-family: "Dancing Script", Georgia, serif;
-  font-size: clamp(34px, 4.6vw, 58px);
-  color: var(--blue);
-  font-weight: 500;
+/* photos */
+.pics{
+  margin-top:clamp(30px,6vw,56px);
+  position:relative;
+  height:clamp(420px,52vw,560px);
 }
 
-.statement-text p {
-  margin: 0;
-  max-width: 520px;
-  font-size: clamp(12px, 1.2vw, 14px);
-  line-height: 1.55;
+.pic{
+  position:absolute;
+  width:clamp(210px,24vw,290px);
+  aspect-ratio:1/1;
+  object-fit:cover;
+  display:block;
+  border:1px solid #e6e6e6;
+  background:#f2f2f2;
 }
 
-.artwork {
-  width: clamp(320px, 40vw, 460px);
-  height: clamp(200px, 22vw, 280px);
-  object-fit: cover;
-  display: block;
-  border: 1px solid #e6e6e6;
-  background: #f2f2f2;
+.pic-1{left:0%;top:0%;}
+.pic-2{left:34%;top:26%;}
+.pic-3{right:0%;top:52%;}
+
+/* footer (IDENTICAL to homepage) */
+.site-footer{
+  background:linear-gradient(180deg,#4a4a4a 0%,#3f3f3f 100%);
+  color:#fff;
+  padding:18px 0;
+  box-shadow:0 -8px 22px rgba(0,0,0,0.12);
 }
 
-.pics {
-  margin-top: clamp(30px, 6vw, 56px);
-  position: relative;
-  height: clamp(420px, 52vw, 560px);
+.footer-inner{
+  width:min(calc(100% - (var(--side) * 2)), var(--max));
+  margin:0 auto;
+  display:flex;
+  gap:18px;
+  align-items:center;
+  justify-content:space-between;
 }
 
-.pic {
-  position: absolute;
-  width: clamp(210px, 24vw, 290px);
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  display: block;
-  border: 1px solid #e6e6e6;
-  background: #f2f2f2;
+.footer-note{
+  font-family:Georgia,serif;
+  font-size:16px;
+  letter-spacing:0.06em;
+  max-width:320px;
+  text-transform:uppercase;
+  line-height:1.25;
+  font-weight:200;
 }
 
-.pic-1 {
-  left: 0%;
-  top: 0%;
+.footer-contact{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  font-family:Georgia,serif;
+  font-size:16px;
+  letter-spacing:0.06em;
+  line-height:1.2;
+  font-weight:200;
 }
 
-.pic-2 {
-  left: 34%;
-  top: 26%;
+.contact-row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:flex-end;
 }
 
-.pic-3 {
-  right: 0%;
-  top: 52%;
+.contact-icon{
+  display:inline-block;
+  width:58px;
+  text-align:center;
+  opacity:0.9;
+  font-size:24px;
 }
 
-.site-footer {
-  background: #5a5a5a;
-  color: #fff;
-  padding: clamp(18px, 3vw, 26px) 0;
-}
+.footer-contact a{color:#fff;text-decoration:none;}
+.footer-contact a:hover{text-decoration:underline;}
 
-.footer-inner {
-  width: min(calc(100% - (var(--side) * 2)), var(--max));
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-}
+/* responsive */
+@media (max-width:760px){
+  .statement{grid-template-columns:1fr;}
+  .artwork{width:100%;height:clamp(200px,50vw,320px);}
 
-.footer-note {
-  font-family: Georgia, serif;
-  font-size: 20px;
-  letter-spacing: 0.06em;
-  max-width: 340px;
-  text-transform: uppercase;
-}
-
-.footer-contact {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  font-family: Georgia, serif;
-  font-size: 20px;
-  letter-spacing: 0.06em;
-}
-
-.contact-row {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.contact-icon {
-  display: inline-block;
-  width: 30px;
-  text-align: center;
-}
-
-.footer-contact a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.footer-contact a:hover {
-  text-decoration: underline;
-}
-
-@media (max-width:760px) {
-  .statement {
-    grid-template-columns: 1fr;
+  .pics{
+    height:auto;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+  .pic{
+    position:static;
+    width:100%;
+    aspect-ratio:4/3;
   }
 
-  .artwork {
-    width: 100%;
-    height: clamp(200px, 50vw, 320px);
-  }
-
-  .pics {
-    height: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .pic {
-    position: static;
-    width: 100%;
-    aspect-ratio: 4/3;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .contact-row {
-    justify-content: flex-start;
-  }
+  .footer-inner{flex-direction:column;align-items:flex-start;}
+  .contact-row{justify-content:flex-start;}
 }
