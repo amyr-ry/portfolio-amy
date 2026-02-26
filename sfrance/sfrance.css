@@ -2,12 +2,17 @@
 
 :root {
   --ink: #280905;
+  --bg: #f3e9d2;
+  --blue: #1e6fa8;
+
   --side: clamp(16px, 6vw, 100px);
+  --top: clamp(40px, 8vw, 80px);
   --max: 1100px;
 
-  --titleSize: clamp(56px, 9vmin, 96px);
+  /* a little smaller than homepage HELLO WORLD */
+  --titleSize: clamp(78px, 10.5vw, 170px);
 
-  --board: clamp(520px, 58vw, 880px);
+  --board: clamp(560px, 66vw, 980px);
   --spot: clamp(160px, 18vw, 250px);
 
   --nice: #1e6fa8;
@@ -15,8 +20,6 @@
   --monaco: #d94a4a;
   --cannes: #d88a2a;
   --antibus: #6a866f;
-
-  --footerBg: #5a5a5a;
 }
 
 html,
@@ -27,41 +30,49 @@ body {
 }
 
 body {
-  background: #fff;
+  background: var(--bg);
   color: var(--ink);
   font-family: Georgia, serif;
 }
 
+/* ===== Layout wrappers ===== */
 .sf-stage {
   width: 100%;
-  min-height: calc(100vh - 92px);
 }
 
 .sf-inner {
   width: min(calc(100% - (var(--side) * 2)), var(--max));
   margin: 0 auto;
-  padding: clamp(18px, 4vmin, 54px) 0;
+  padding: 0 0 2px; /* minimal gap before footer */
 }
 
-.sf-title {
-  margin: clamp(18px, 5vmin, 70px) 0 0;
-  font-family: "Dancing Script", Georgia, serif;
-  font-size: var(--titleSize);
-  font-weight: 500;
-  line-height: 1.05;
+.title {
+  margin: 50px 0px 0px 300px; 
+  width: 200px; 
+  display: flex; 
+  flex-direction: column;
+  font-family: "Dancing Script";
+  font-size: 50;
+  font-weight: 100;
+  line-height: 0.2;
   letter-spacing: 0.08em;
 }
+/* .title { margin: 80px 10px 10px 80px; width: 1000px; display: flex; flex-direction: column; }  */
+.left { align-self: flex-end; } 
+.right { align-self: flex-start; }
 
+/* ===== Canvas ===== */
 .sf-canvas {
   position: relative;
-  margin-top: clamp(6px, 2vmin, 16px);
-  min-height: calc(var(--board) + 240px);
+  margin-top: 0;
+  min-height: calc(var(--board) + 10px); /* tighten bottom whitespace */
 }
 
+/* Track (rail) */
 .sf-track {
   position: absolute;
-  right: 0;
-  top: clamp(-140px, -10vmin, -40px);
+  right: clamp(-60px, -20vw, -50px);
+  top: clamp(-250px, -20vmin, -180px);
   width: var(--board);
   height: auto;
   display: block;
@@ -70,15 +81,17 @@ body {
   z-index: 1;
 }
 
+/* Spots overlay */
 .sf-spots {
   position: absolute;
-  right: 0;
-  top: clamp(-140px, -10vmin, -40px);
+  right: clamp(8px, 50vw, 100px);
+  top: clamp(-500px, -25vmin, -120px);
   width: var(--board);
   aspect-ratio: 1/1;
   z-index: 2;
 }
 
+/* ===== Spots ===== */
 .spot {
   position: absolute;
   width: var(--spot);
@@ -125,11 +138,11 @@ body {
   border-radius: 10px;
 }
 
+/* Keep your existing spot positions */
 .spot-blue {
   left: 76%;
   top: 18%;
 }
-
 .spot-blue .spot-label {
   color: var(--nice);
 }
@@ -138,7 +151,6 @@ body {
   left: 80%;
   top: 41%;
 }
-
 .spot-yellow .spot-label {
   color: var(--mento);
 }
@@ -147,7 +159,6 @@ body {
   left: 48%;
   top: 52%;
 }
-
 .spot-red .spot-label {
   color: var(--monaco);
 }
@@ -156,7 +167,6 @@ body {
   left: 58%;
   top: 74%;
 }
-
 .spot-orange .spot-label {
   color: var(--cannes);
 }
@@ -165,70 +175,72 @@ body {
   left: 18%;
   top: 86%;
 }
-
 .spot-green .spot-label {
   color: var(--antibus);
 }
 
+/* ===== Artist Statement ===== */
 .sf-statement {
   position: absolute;
   left: 0;
-  top: clamp(150px, 22vmin, 240px);
-  width: clamp(260px, 30vw, 360px);
+  top: clamp(70px, 10vmin, 130px);
+  width: clamp(280px, 32vw, 420px);
   z-index: 3;
 }
 
 .sf-statement-title {
   margin: 0 0 10px 0;
   font-family: "Dancing Script", Georgia, serif;
-  font-size: clamp(24px, 3.2vmin, 34px);
+  font-size: clamp(34px, 4.6vw, 58px);
+  color: var(--blue);
   font-weight: 500;
   text-align: left;
 }
 
 .sf-statement-p {
   margin: 0;
-  font-size: clamp(11px, 1.5vmin, 13px);
-  line-height: 1.55;
+  font-size: clamp(16px, 2.2vw, 20px);
+  line-height: 1.6;
+  font-family: Georgia, serif;
+  max-width: 800px;
 }
 
-
-.sf-statement-p {
-  margin: 0;
-  font-size: clamp(11px, 1.5vmin, 13px);
-  line-height: 1.55;
-}
-
+/* ===== Footer (identical to homepage) ===== */
 .site-footer {
-  background: var(--footerBg);
+  background: linear-gradient(180deg, #4a4a4a 0%, #3f3f3f 100%);
   color: #fff;
-  padding: clamp(18px, 3vw, 26px) 0;
+  padding: 18px 0;
+  box-shadow: 0 -8px 22px rgba(0, 0, 0, 0.12);
 }
 
 .footer-inner {
   width: min(calc(100% - (var(--side) * 2)), var(--max));
   margin: 0 auto;
   display: flex;
+  gap: 18px;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
 }
 
 .footer-note {
   font-family: Georgia, serif;
-  font-size: 12px;
+  font-size: 16px;
   letter-spacing: 0.06em;
-  max-width: 340px;
+  max-width: 320px;
   text-transform: uppercase;
+  line-height: 1.25;
+  font-weight: 200;
 }
 
 .footer-contact {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   font-family: Georgia, serif;
-  font-size: 12px;
+  font-size: 16px;
   letter-spacing: 0.06em;
+  line-height: 1.2;
+  font-weight: 200;
 }
 
 .contact-row {
@@ -240,8 +252,10 @@ body {
 
 .contact-icon {
   display: inline-block;
-  width: 18px;
+  width: 58px;
   text-align: center;
+  opacity: 0.9;
+  font-size: 24px;
 }
 
 .footer-contact a {
@@ -253,29 +267,11 @@ body {
   text-decoration: underline;
 }
 
-@media (max-height:720px) {
-  :root {
-    --board: clamp(460px, 54vw, 760px);
-    --spot: clamp(140px, 16vw, 220px);
-  }
-
-  .sf-track,
-  .sf-spots {
-    top: clamp(-110px, -9vmin, -30px);
-  }
-
-  .sf-canvas {
-    min-height: calc(var(--board) + 200px);
-  }
-
-  .sf-statement {
-    bottom: clamp(70px, 8vmin, 120px);
-  }
-}
-
-@media (max-width:700px) {
+/* ===== Responsive ===== */
+@media (max-width: 700px) {
   .sf-title {
     text-align: center;
+    padding-right: 0;
   }
 
   .sf-track,
@@ -302,14 +298,10 @@ body {
 
   .sf-statement {
     position: relative;
-    right: auto;
-    bottom: auto;
+    left: auto;
+    top: auto;
     width: min(92vw, 520px);
     margin: 18px auto 0;
-  }
-
-  .sf-statement-title {
-    text-align: left;
   }
 
   .footer-inner {

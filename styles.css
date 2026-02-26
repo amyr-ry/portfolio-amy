@@ -5,18 +5,22 @@
   --bg: #f3e9d2;
   --blue: #1e6fa8;
   --yellow: #f4c42f;
+
   --side: clamp(16px, 6vw, 100px);
   --top: clamp(40px, 8vw, 80px);
   --max: 1000px;
-  --card-w: clamp(300px, 40vw, 400px);
-  --card-h: clamp(200px, 30vw, 300px);
+
+  --card-w: clamp(350px, 50vw, 450px);
+  --card-h: clamp(250px, 40vw, 350px);
   --gap: clamp(90px, 10vh, 140px);
+
   --y1: clamp(140px, 18vh, 190px);
   --step: calc(var(--card-h) + var(--gap));
   --y2: calc(var(--y1) + var(--step));
-  --y3: calc(var(--y1) + var(--step) * 2);
-  --y4: calc(var(--y1) + var(--step) * 3);
-  --y5: calc(var(--y1) + var(--step) * 4);
+  --y3: calc(var(--y1) + (var(--step) * 2));
+  --y4: calc(var(--y1) + (var(--step) * 3));
+  --y5: calc(var(--y1) + (var(--step) * 4));
+
   --xL: 32%;
   --xR: 68%;
 }
@@ -24,15 +28,14 @@
 html,
 body {
   overflow-x: hidden;
+  margin: 0;
 }
 
 body {
-  margin: 0;
   font-family: "Dancing Script", Georgia, serif;
   color: var(--ink);
   background: var(--bg);
   position: relative;
-  z-index: 0;
 }
 
 h1 {
@@ -82,11 +85,6 @@ p {
   z-index: -1;
 }
 
-.top {
-  position: relative;
-  z-index: 1;
-}
-
 .title {
   margin: 80px 10px 10px 80px;
   width: 1000px;
@@ -103,8 +101,6 @@ p {
 }
 
 .artist {
-  position: relative;
-  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   column-gap: clamp(16px, 4vw, 40px);
@@ -128,21 +124,28 @@ p {
   margin-top: clamp(24px, 3vw, 44px);
 }
 
-.journey {
-  position: relative;
-  z-index: 1;
-  padding-bottom: clamp(24px, 5vw, 50px);
+.myjourney-title {
+  grid-column: 2/3;
+  justify-self: end;
+  align-self: start;
+  margin: clamp(8px, 1.6vw, 14px) var(--side) 0 0;
+  text-align: right;
+  white-space: nowrap;
+  font-size: clamp(28px, 5vw, 60px);
+  color: var(--blue);
+  font-weight: 500;
+  line-height: 1.05;
 }
 
-.journey h2 {
-  margin: clamp(8px, 1.6vw, 14px) var(--side) clamp(12px, 3vw, 18px) var(--side);
+.journey {
+  padding-bottom: clamp(10px, 2.5vw, 24px);
 }
 
 .projects {
   position: relative;
   width: min(calc(100% - (var(--side) * 2)), var(--max));
   margin: 0 auto;
-  min-height: calc(var(--y5) + (var(--card-h) / 2) + 140px);
+  min-height: calc(var(--y5) + (var(--card-h) / 2) + 70px);
 }
 
 .project {
@@ -150,7 +153,6 @@ p {
   transform: translate(-50%, -50%);
   text-decoration: none;
   color: inherit;
-  z-index: 2;
   overflow: visible;
 }
 
@@ -159,7 +161,7 @@ p {
   height: var(--card-h);
   display: block;
   object-fit: cover;
-  background: #a9a9a9;
+  background: transparent;
   border-radius: 4px;
 }
 
@@ -167,20 +169,20 @@ p {
   opacity: 0.85;
 }
 
-.journey .label {
+.label {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  padding: 0;
   margin: 0;
+  padding: 0;
   background: transparent;
-  font-size: clamp(14px, 1.6vw, 18px);
+  font-size: clamp(18px, 2.2vw, 28px);
   color: #d47a2a;
   letter-spacing: 0.15em;
   writing-mode: vertical-rl;
   text-orientation: upright;
   line-height: 1;
-  font-weight: 800;
+  font-weight: 900;
   white-space: nowrap;
 }
 
@@ -189,17 +191,9 @@ p {
   top: var(--y1);
 }
 
-.project-paris .label {
-  right: calc(100% + 14px);
-}
-
 .project-uva {
   left: var(--xR);
   top: var(--y2);
-}
-
-.project-uva .label {
-  left: calc(100% + 14px);
 }
 
 .project-sfrance {
@@ -207,17 +201,9 @@ p {
   top: var(--y3);
 }
 
-.project-sfrance .label {
-  right: calc(100% + 14px);
-}
-
 .project-xjiang {
   left: var(--xR);
   top: var(--y4);
-}
-
-.project-xjiang .label {
-  left: calc(100% + 14px);
 }
 
 .project-rlake {
@@ -225,16 +211,31 @@ p {
   top: var(--y5);
 }
 
+.project-paris .label {
+  right: calc(100% + 14px);
+}
+
+.project-sfrance .label {
+  right: calc(100% + 14px);
+}
+
 .project-rlake .label {
   right: calc(100% + 14px);
 }
 
+.project-uva .label {
+  left: calc(100% + 14px);
+}
+
+.project-xjiang .label {
+  left: calc(100% + 14px);
+}
+
 .site-footer {
-  position: relative;
-  z-index: 1;
-  background: #4a4a4a;
+  background: linear-gradient(180deg, #4a4a4a 0%, #3f3f3f 100%);
   color: #fff;
   padding: 18px 0;
+  box-shadow: 0 -8px 22px rgba(0, 0, 0, 0.12);
 }
 
 .footer-inner {
@@ -248,19 +249,24 @@ p {
 
 .footer-note {
   font-family: Georgia, serif;
-  font-size: 20px;
+  font-size: 16px;
   letter-spacing: 0.06em;
   max-width: 320px;
   text-transform: uppercase;
+  line-height: 1.25;
+  font-weight: 200;
 }
+
 
 .footer-contact {
   display: flex;
   flex-direction: column;
   gap: 8px;
   font-family: Georgia, serif;
-  font-size: 20px;
+  font-size: 16px;
   letter-spacing: 0.06em;
+  line-height: 1.2;
+  font-weight: 200;
 }
 
 .contact-row {
@@ -272,8 +278,10 @@ p {
 
 .contact-icon {
   display: inline-block;
-  width: 50px;
+  width: 58px;
   text-align: center;
+  opacity: 0.9;
+  font-size: 24px;
 }
 
 .footer-contact a {
@@ -309,6 +317,13 @@ p {
     aspect-ratio: 3/4;
     margin-right: 0;
   }
+
+  .myjourney-title {
+    grid-column: 1/-1;
+    justify-self: center;
+    margin: 18px 0 0 0;
+    text-align: center;
+  }
 }
 
 @media (max-width:520px) {
@@ -322,11 +337,11 @@ p {
 
   .projects {
     width: calc(100% - 32px);
-    min-height: calc(var(--y5) + (var(--card-h) / 2) + 180px);
+    min-height: calc(var(--y5) + (var(--card-h) / 2) + 110px);
   }
 
-  .journey .label {
-    font-size: 14px;
+  .label {
+    font-size: clamp(16px, 4.6vw, 24px);
     letter-spacing: 0.1em;
   }
 

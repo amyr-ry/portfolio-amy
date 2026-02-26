@@ -24,21 +24,33 @@
 
       <section class="video-section">
         <div class="video-frame">
-          <iframe src="https://player.vimeo.com/video/1167533263?autoplay=1&muted=1&badge=0&autopause=0&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="AI Final"></iframe>
+          <iframe
+            src="https://player.vimeo.com/video/1167533263?autoplay=1&muted=1&badge=0&autopause=0&title=0&byline=0&portrait=0"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            title="AI Final"
+          ></iframe>
         </div>
 
-        <img class="thumb-strip" src="../images/rlake2.png" alt="Project thumbnails">
+        <div class="thumb-banner" aria-label="Thumbnail strip">
+          <div class="thumb-track" id="thumbTrack">
+            <img class="thumb-strip" id="thumbStrip" src="../images/rlake2.png" alt="Project thumbnails">
+          </div>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="footer-inner">
-        <div class="footer-note">THANK YOU FOR EMBARKING ON THIS JOURNEY WITH ME!</div>
+        <div class="footer-note">THANK YOU FOR EMBARKING<br>ON THIS JOURNEY WITH ME</div>
         <div class="footer-contact">
           <div class="contact-row"><span class="contact-icon">✉</span><a href="mailto:amyry@uchicago.edu">AMYRY@UCHICAGO.EDU</a></div>
           <div class="contact-row"><span class="contact-icon">☎</span><a href="tel:+12679927867">+1 267-992-7867</a></div>
         </div>
       </div>
     </footer>
+
+    <script src="rlake.js"></script>
   </body>
 </html>
