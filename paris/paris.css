@@ -8,8 +8,7 @@
   --max: 1000px;
 }
 
-html,
-body {
+* {
   margin: 0;
   overflow-x: hidden;
 }
@@ -30,7 +29,7 @@ body {
   height: clamp(240px, 36vw, 420px);
   display: block;
   object-fit: cover;
-  object-position: center;
+  object-position: middle;
 }
 
 .wrap {
@@ -65,11 +64,11 @@ body {
 .statement-img{
   width: 100%;
   height: clamp(200px, 30vw, 300px);
-  object-fit:cover;
-  display:block;
-  border:1px solid #e6e6e6;
-  background:transparent;
-  margin-top:clamp(200px,3vw,34px);
+  object-fit: cover;
+  display: block;
+  border: 1px solid #e6e6e6;
+  background: transparent;
+  margin-top: clamp(120px,2vw,15px);
 }
 
 
@@ -84,8 +83,6 @@ body {
 .gallery-img {
   display: block;
   object-fit: cover;
-  border: 1px solid #e6e6e6;
-  background: transparent;
 }
 
 .gallery-left {

@@ -5,28 +5,23 @@
   --bg: #f3e9d2;
   --blue: #1e6fa8;
   --yellow: #f4c42f;
-
   --side: clamp(16px, 6vw, 100px);
   --top: clamp(40px, 8vw, 80px);
   --max: 1000px;
-
   --card-w: clamp(350px, 50vw, 450px);
   --card-h: clamp(250px, 40vw, 350px);
   --gap: clamp(90px, 10vh, 140px);
-
   --y1: clamp(140px, 18vh, 190px);
   --step: calc(var(--card-h) + var(--gap));
   --y2: calc(var(--y1) + var(--step));
   --y3: calc(var(--y1) + (var(--step) * 2));
   --y4: calc(var(--y1) + (var(--step) * 3));
   --y5: calc(var(--y1) + (var(--step) * 4));
-
   --xL: 32%;
   --xR: 68%;
 }
 
-html,
-body {
+* {
   overflow-x: hidden;
   margin: 0;
 }
