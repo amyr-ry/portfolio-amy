@@ -97,7 +97,7 @@ p {
 
 .artist {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) fit-content(clamp(220px, 30vw, 320px));
   column-gap: clamp(16px, 4vw, 40px);
   align-items: start;
   margin-left: 100px;
@@ -127,7 +127,6 @@ p {
   align-self: start;
   margin: clamp(15px, 2vw, 20px) var(--side) 0 0;
   text-align: right;
-  white-space: nowrap;
   font-weight: 500;
   line-height: 1.05;
 }
