@@ -7,12 +7,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const br = document.querySelector(".tile-br");
   const center = document.querySelector(".tile-center");
 
-  if (reduced) {
+  const showAll = () => {
     tl?.classList.add("in");
     tr?.classList.add("in");
     bl?.classList.add("in");
     br?.classList.add("in");
     center?.classList.add("show");
+  };
+
+  if (reduced) {
+    showAll();
     return;
   }
 
@@ -21,15 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
     () => tr?.classList.add("in"),
     () => bl?.classList.add("in"),
     () => br?.classList.add("in"),
-    () => center?.classList.add("show")
+    () => center?.classList.add("show"),
   ];
 
   let i = 0;
-
   const run = () => {
     if (i >= steps.length) return;
-    steps[i]();
-    i += 1;
+    steps[i++]();
     setTimeout(run, 700);
   };
 

@@ -2,11 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const banner = document.querySelector(".thumb-banner");
   const track = document.getElementById("thumbTrack");
   const img = document.getElementById("thumbStrip");
-
   if (!banner || !track || !img) return;
 
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReducedMotion) {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     banner.style.overflowX = "auto";
     banner.style.scrollBehavior = "smooth";
     return;
@@ -17,33 +15,29 @@ document.addEventListener("DOMContentLoaded", () => {
   clone.setAttribute("aria-hidden", "true");
   track.appendChild(clone);
 
-  const speed = 0.6;
   let x = 0;
   let w = 0;
+  const speed = 0.6;
 
   const measure = () => {
     w = img.getBoundingClientRect().width;
   };
 
-  const animate = () => {
+  const tick = () => {
     if (!w) measure();
     x += speed;
     if (x >= w) x = 0;
     track.style.transform = `translateX(${-x}px)`;
-    requestAnimationFrame(animate);
+    requestAnimationFrame(tick);
   };
 
-  if (img.complete) {
+  const start = () => {
     measure();
-    requestAnimationFrame(animate);
-  } else {
-    img.addEventListener("load", () => {
-      measure();
-      requestAnimationFrame(animate);
-    }, { once: true });
-  }
+    requestAnimationFrame(tick);
+  };
 
-  window.addEventListener("resize", () => {
-    measure();
-  });
+  if (img.complete) start();
+  else img.addEventListener("load", start, { once: true });
+
+  window.addEventListener("resize", measure);
 });

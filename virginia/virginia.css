@@ -3,7 +3,7 @@
 :root {
   --ink: #280905;
   --bg: #f3e9d2;
-  --blue: #1e6fa8;
+  --blue: #e86a1d;
   --side: clamp(16px, 6vw, 100px);
   --max: 1000px;
 }
@@ -31,7 +31,7 @@ body {
   height: clamp(260px, 38vw, 480px);
   display: block;
   object-fit: cover;
-  object-position: middle;
+  object-position: center;
 }
 
 .wrap {
@@ -64,7 +64,7 @@ body {
 
 .artwork {
   width: clamp(320px, 40vw, 460px);
-  height: clamp(200px, 22vw, 280px);
+  height: clamp(250px, 25vw, 300px);
   object-fit: cover;
   display: block;
   border: 1px solid #e6e6e6;
@@ -81,7 +81,7 @@ body {
 .pic {
   position: absolute;
   width: clamp(210px, 24vw, 290px);
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
   border: 1px solid #e6e6e6;
@@ -104,55 +104,47 @@ body {
 }
 
 .site-footer {
-  background: linear-gradient(180deg, #4a4a4a 0%, #3f3f3f 100%);
-  color: #fff;
-  padding: 18px 0;
-  box-shadow: 0 -8px 22px rgba(0, 0, 0, 0.12);
+  background: #e86a1d;
+  opacity: 0.6;
 }
 
 .footer-inner {
-  width: min(calc(100% - (var(--side) * 2)), var(--max));
+  width: 70%;
   margin: 0 auto;
+  padding: 10px;
   display: flex;
-  gap: 18px;
   align-items: center;
   justify-content: space-between;
 }
 
-.footer-note {
+.footer-note,
+.footer-contact {
   font-family: Georgia, serif;
+  color: #fff;
   font-size: 16px;
-  letter-spacing: 0.06em;
-  max-width: 320px;
-  text-transform: uppercase;
-  line-height: 1.25;
+  letter-spacing: 0.1em;
   font-weight: 200;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 
 .footer-contact {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-family: Georgia, serif;
-  font-size: 16px;
-  letter-spacing: 0.06em;
-  line-height: 1.2;
-  font-weight: 200;
+  line-height: 0.8;
 }
 
 .contact-row {
   display: flex;
   gap: 10px;
   align-items: center;
-  justify-content: flex-end;
 }
 
 .contact-icon {
   display: inline-block;
-  width: 58px;
-  text-align: center;
-  opacity: 0.9;
-  font-size: 24px;
+  width: 20px;
+  font-size: 30px;
+  color: #fff;
 }
 
 .footer-contact a {
@@ -162,37 +154,4 @@ body {
 
 .footer-contact a:hover {
   text-decoration: underline;
-}
-
-@media (max-width:760px) {
-  .statement {
-    grid-template-columns: 1fr;
-  }
-
-  .artwork {
-    width: 100%;
-    height: clamp(200px, 50vw, 320px);
-  }
-
-  .pics {
-    height: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .pic {
-    position: static;
-    width: 100%;
-    aspect-ratio: 4/3;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .contact-row {
-    justify-content: flex-start;
-  }
 }

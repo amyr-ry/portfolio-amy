@@ -3,23 +3,18 @@
 :root {
   --ink: #280905;
   --bg: #f3e9d2;
-  --blue: #1e6fa8;
-
+  --blue: #4f7a57;
   --side: clamp(16px, 6vw, 100px);
   --top: clamp(40px, 8vw, 80px);
   --max: 1100px;
-
-  /* a little smaller than homepage HELLO WORLD */
   --titleSize: clamp(78px, 10.5vw, 170px);
-
   --board: clamp(560px, 66vw, 980px);
   --spot: clamp(160px, 18vw, 250px);
-
   --nice: #1e6fa8;
-  --mento: #d4a100;
-  --monaco: #d94a4a;
-  --cannes: #d88a2a;
-  --antibus: #6a866f;
+  --mento: #f4c42f;
+  --monaco: #d62929;
+  --cannes: #e86a1d;
+  --antibus: #4f7a57;
 }
 
 html,
@@ -35,7 +30,6 @@ body {
   font-family: Georgia, serif;
 }
 
-/* ===== Layout wrappers ===== */
 .sf-stage {
   width: 100%;
 }
@@ -43,37 +37,40 @@ body {
 .sf-inner {
   width: min(calc(100% - (var(--side) * 2)), var(--max));
   margin: 0 auto;
-  padding: 0 0 2px; /* minimal gap before footer */
+  padding: 0 0 2px;
 }
 
 .title {
-  margin: 50px 0px 0px 300px; 
-  width: 200px; 
-  display: flex; 
+  margin: 50px 0px 0px 300px;
+  width: 200px;
+  display: flex;
   flex-direction: column;
   font-family: "Dancing Script";
-  font-size: 50;
-  font-weight: 100;
+  font-size: 60;
+  font-weight: 200;
   line-height: 0.2;
   letter-spacing: 0.08em;
 }
-/* .title { margin: 80px 10px 10px 80px; width: 1000px; display: flex; flex-direction: column; }  */
-.left { align-self: flex-end; } 
-.right { align-self: flex-start; }
 
-/* ===== Canvas ===== */
+.left {
+  align-self: flex-end;
+}
+
+.right {
+  align-self: flex-start;
+}
+
 .sf-canvas {
   position: relative;
   margin-top: 0;
-  min-height: calc(var(--board) + 10px); /* tighten bottom whitespace */
+  min-height: var(--board);
 }
 
-/* Track (rail) */
 .sf-track {
   position: absolute;
-  right: clamp(-60px, -20vw, -50px);
-  top: clamp(-250px, -20vmin, -180px);
-  width: var(--board);
+  right: clamp(-220px, -120vw, -120px);
+  top: clamp(-350px, -40vmin, -250px);
+  width: calc(var(--board) + 250px);
   height: auto;
   display: block;
   pointer-events: none;
@@ -81,17 +78,15 @@ body {
   z-index: 1;
 }
 
-/* Spots overlay */
 .sf-spots {
   position: absolute;
-  right: clamp(8px, 50vw, 100px);
-  top: clamp(-500px, -25vmin, -120px);
-  width: var(--board);
+  right: clamp(-150px, -50vw, -50px);
+  top: clamp(-350px, -40vmin, -250px);
+  width: calc(var(--board) + 300px);
   aspect-ratio: 1/1;
   z-index: 2;
 }
 
-/* ===== Spots ===== */
 .spot {
   position: absolute;
   width: var(--spot);
@@ -103,24 +98,24 @@ body {
 }
 
 .spot img {
-  width: 100%;
+  width: 165%;
   height: auto;
   display: block;
   transition: opacity 180ms ease;
 }
 
 .spot:hover img {
-  opacity: 0.55;
+  opacity: 0.3;
 }
 
 .spot-label {
   position: absolute;
   inset: 0;
   display: grid;
-  place-items: center;
-  font-family: "Dancing Script", Georgia, serif;
+  place-items: center right;
+  font-family: "Dancing Script", serif;
   font-weight: 800;
-  font-size: clamp(20px, 3.6vmin, 44px);
+  font-size: clamp(30px, 4vmin, 50px);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   opacity: 0;
@@ -132,58 +127,55 @@ body {
   opacity: 1;
 }
 
-.spot:focus-visible {
-  outline: 3px solid rgba(30, 111, 168, 0.55);
-  outline-offset: 6px;
-  border-radius: 10px;
+.spot-blue {
+  left: 65%;
+  top: 5%;
 }
 
-/* Keep your existing spot positions */
-.spot-blue {
-  left: 76%;
-  top: 18%;
-}
 .spot-blue .spot-label {
   color: var(--nice);
 }
 
 .spot-yellow {
   left: 80%;
-  top: 41%;
+  top: 38%;
 }
+
 .spot-yellow .spot-label {
   color: var(--mento);
 }
 
 .spot-red {
-  left: 48%;
+  left: 40%;
   top: 52%;
 }
+
 .spot-red .spot-label {
   color: var(--monaco);
 }
 
 .spot-orange {
-  left: 58%;
-  top: 74%;
+  left: 56%;
+  top: 76%;
 }
+
 .spot-orange .spot-label {
   color: var(--cannes);
 }
 
 .spot-green {
-  left: 18%;
-  top: 86%;
+  left: 15%;
+  top: 85%;
 }
+
 .spot-green .spot-label {
   color: var(--antibus);
 }
 
-/* ===== Artist Statement ===== */
 .sf-statement {
   position: absolute;
   left: 0;
-  top: clamp(70px, 10vmin, 130px);
+  top: clamp(6px, 8vmin, 100px);
   width: clamp(280px, 32vw, 420px);
   z-index: 3;
 }
@@ -205,57 +197,48 @@ body {
   max-width: 800px;
 }
 
-/* ===== Footer (identical to homepage) ===== */
 .site-footer {
-  background: linear-gradient(180deg, #4a4a4a 0%, #3f3f3f 100%);
-  color: #fff;
-  padding: 18px 0;
-  box-shadow: 0 -8px 22px rgba(0, 0, 0, 0.12);
+  background: #4f7a57;
+  opacity: 0.5;
 }
 
 .footer-inner {
-  width: min(calc(100% - (var(--side) * 2)), var(--max));
+  width: 70%;
   margin: 0 auto;
+  padding: 10px;
   display: flex;
-  gap: 18px;
   align-items: center;
   justify-content: space-between;
 }
 
-.footer-note {
+.footer-note,
+.footer-contact {
   font-family: Georgia, serif;
+  color: #fff;
   font-size: 16px;
-  letter-spacing: 0.06em;
-  max-width: 320px;
-  text-transform: uppercase;
-  line-height: 1.25;
+  letter-spacing: 0.1em;
   font-weight: 200;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 
 .footer-contact {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-family: Georgia, serif;
-  font-size: 16px;
-  letter-spacing: 0.06em;
-  line-height: 1.2;
-  font-weight: 200;
+  line-height: 0.8;
 }
 
 .contact-row {
   display: flex;
   gap: 10px;
   align-items: center;
-  justify-content: flex-end;
 }
 
 .contact-icon {
   display: inline-block;
-  width: 58px;
-  text-align: center;
-  opacity: 0.9;
-  font-size: 24px;
+  width: 20px;
+  font-size: 30px;
+  color: #fff;
 }
 
 .footer-contact a {
@@ -265,51 +248,4 @@ body {
 
 .footer-contact a:hover {
   text-decoration: underline;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 700px) {
-  .sf-title {
-    text-align: center;
-    padding-right: 0;
-  }
-
-  .sf-track,
-  .sf-spots {
-    position: relative;
-    right: auto;
-    top: auto;
-    margin: 18px auto 0;
-    width: min(92vw, 520px);
-  }
-
-  .sf-spots {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    aspect-ratio: auto;
-  }
-
-  .spot {
-    position: relative;
-    transform: none;
-    width: 100%;
-  }
-
-  .sf-statement {
-    position: relative;
-    left: auto;
-    top: auto;
-    width: min(92vw, 520px);
-    margin: 18px auto 0;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .contact-row {
-    justify-content: flex-start;
-  }
 }
