@@ -7,7 +7,7 @@
   --side: clamp(16px, 6vw, 100px);
   --top: clamp(40px, 8vw, 80px);
   --max: 1100px;
-  --titleSize: clamp(78px, 10.5vw, 170px);
+  --titleSize: clamp(60px, 8vw, 120px);
   --board: clamp(560px, 66vw, 980px);
   --spot: clamp(160px, 18vw, 250px);
   --nice: #1e6fa8;
@@ -41,15 +41,18 @@ body {
 }
 
 .title {
-  margin: 50px 0px 0px 300px;
+  margin: 50px 0 0 300px;
   width: 200px;
   display: flex;
   flex-direction: column;
-  font-family: "Dancing Script";
-  font-size: 60px;
+  font-family: "Dancing Script", Georgia, serif;
   font-weight: 200;
   line-height: 0.2;
   letter-spacing: 0.08em;
+}
+
+.title h1 {
+  font-size: var(--titleSize);
 }
 
 .left {
