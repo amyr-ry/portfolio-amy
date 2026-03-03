@@ -30,10 +30,6 @@ body {
   font-family: Georgia, serif;
 }
 
-.sf-stage {
-  width: 100%;
-}
-
 .sf-inner {
   width: min(calc(100% - (var(--side) * 2)), var(--max));
   margin: 0 auto;
@@ -65,7 +61,6 @@ body {
 
 .sf-canvas {
   position: relative;
-  margin-top: 0;
   min-height: var(--board);
 }
 
@@ -96,7 +91,6 @@ body {
   padding: 0;
   border: 0;
   background: transparent;
-  cursor: pointer;
   transform: translate(-50%, -50%);
 }
 

@@ -67,8 +67,6 @@ body {
   height: clamp(200px, 30vw, 300px);
   object-fit: cover;
   display: block;
-  border: 1px solid #e6e6e6;
-  background: transparent;
   margin-top: clamp(120px, 2vw, 15px);
 }
 

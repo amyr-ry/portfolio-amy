@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const run = () => {
     if (i >= steps.length) return;
     steps[i++]();
-    setTimeout(run, 700);
+    setTimeout(run, 800);
   };
 
   setTimeout(run, 250);

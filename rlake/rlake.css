@@ -20,11 +20,6 @@ body {
   font-family: "Dancing Script", Georgia, serif;
 }
 
-.hero {
-  width: 100%;
-  border-bottom: 1px solid #d6d6d6;
-}
-
 .hero-img {
   width: 100%;
   height: clamp(260px, 38vw, 480px);
@@ -70,7 +65,6 @@ body {
   width: min(100%, 820px);
   margin: 0 auto;
   aspect-ratio: 16 / 9;
-  background: #000;
 }
 
 .video-frame iframe {

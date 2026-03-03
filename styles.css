@@ -16,9 +16,8 @@
   --y3: calc(var(--y1) + (var(--step) * 2));
   --y4: calc(var(--y1) + (var(--step) * 3));
   --y5: calc(var(--y1) + (var(--step) * 4));
-
-  --xL: 32%;
-  --xR: 68%;
+  --xL: 30%;
+  --xR: 70%;
 }
 
 html,

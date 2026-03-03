@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let x = 0;
   let w = 0;
-  const speed = 0.6;
+  const speed = 0.5;
 
   const measure = () => {
     w = img.getBoundingClientRect().width;
